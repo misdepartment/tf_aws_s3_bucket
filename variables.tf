@@ -6,7 +6,7 @@ variable "use_lifecycles" {
   default = false
 }
 variable "lifecycle_id" {
-  default = ""
+  default = "life"
 }
 variable "lifecycle_prefix" {
   default = ""
