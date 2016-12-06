@@ -8,4 +8,18 @@ resource "aws_s3_bucket" "bucket" {
     tags {
         Name = "${var.bucket_name}"
     }
+    
+    lifecycle_rule {
+        id = "${var.lifecycle_id}"
+        prefix = "${var.lifecycle_prefix}"
+        enabled = "${var.use_lifecycles}"
+
+        transition {
+            days = "${var.transition_days}"
+            storage_class = "${var.transition_class}"
+        }
+        expiration {
+            days = "${var.expiration_days}"
+        }
+    }
 }
